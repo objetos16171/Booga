@@ -1,9 +1,10 @@
 #Greenfoot properties
-#Sun Nov 06 13:03:14 CST 2016
+#Sun Nov 06 17:51:16 CST 2016
 readme.name=@README
 class.Jugador.superclass=greenfoot.Actor
 class.Space.image=space1.jpg
 target2.name=Enemigo
+dependency1.from=Space
 target2.showInterface=false
 target3.y=10
 class.Enemigo.superclass=greenfoot.Actor
@@ -19,6 +20,7 @@ editor.swing.0.x=0
 target1.y=10
 target2.height=50
 target1.x=160
+dependency1.to=Enemigo
 target3.height=50
 editor.fx.0.height=700
 target1.showInterface=false
@@ -48,7 +50,8 @@ target3.showInterface=false
 target2.type=ClassTarget
 world.lastInstantiated=Space
 editor.swing.0.height=559
+dependency1.type=UsesDependency
 version=2.8.0
-package.numDependencies=0
+package.numDependencies=1
 project.charset=UTF-8
 readme.height=58
