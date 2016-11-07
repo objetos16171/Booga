@@ -26,5 +26,6 @@ public class Space extends World
     public void agrega()
     {
         addObject(new Enemigo(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(10));
+        addObject(new Jugador(),300,300);
     }
 }
