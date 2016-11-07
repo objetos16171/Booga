@@ -14,6 +14,17 @@ public class Jugador extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+           if(Greenfoot.isKeyDown("left")){
+       move(-3);
+    }
+        if(Greenfoot.isKeyDown("right")){
+       move(3);
+    }    
+    if(Greenfoot.isKeyDown("up")&& getY()>300){
+       setLocation(getX(),getY()-3);
+    }
+       if(Greenfoot.isKeyDown("down")){
+      setLocation(getX(),getY()+3);
+    }// Add your action code here.
     }    
 }
