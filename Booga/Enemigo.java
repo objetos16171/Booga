@@ -15,6 +15,6 @@ public class Enemigo extends Actor
     public void act() 
     {
         // Add your action code here.
-        Greenfoot.playSound("Star_wars_Theme_Song.wav");
+       
     }    
 }
