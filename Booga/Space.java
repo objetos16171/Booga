@@ -28,6 +28,6 @@ public class Space extends World
         addObject(new Enemigo(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(10));
         addObject(new Jugador(),300,420);
         addObject(new Meteorito(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(10));
-       ///Greenfoot.playSound("Star_wars_Theme_Song.wav");
-    }
+       Greenfoot.playSound("Star_wars_Theme_Song.wav");
+       }
 }
