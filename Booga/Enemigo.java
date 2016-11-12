@@ -15,6 +15,14 @@ public class Enemigo extends Actor
     public void act() 
     {
         // Add your action code here.
-       
+       movimiento();
     }    
+    
+    public void movimiento()
+    {
+        move(2);
+        if(getX() == 680){
+            setLocation(getX()-2, getY());
+        }
+    }
 }
