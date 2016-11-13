@@ -42,7 +42,7 @@ public class Space extends World
         if(tiempo.millisElapsed() > 2000){
             addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
             addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 0);
-            tiempo.mark()
+            tiempo.mark();
         }
     } 
 }
