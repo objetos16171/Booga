@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Space extends World
 {
-
+    private SimpleTimer tiempo = new SimpleTimer();
+    private Enemigo ene;
     /**
      * Constructor for objects of class Space.
      * 
@@ -25,9 +26,23 @@ public class Space extends World
      */
     public void agrega()
     {
-        addObject(new Enemigo(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(10));
+        addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 0);
         addObject(new Jugador(),300,420);
-        addObject(new Meteorito(),Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(10));
-       Greenfoot.playSound("Star_wars_Theme_Song.wav");
-       }
+        addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
+       //Greenfoot.playSound("Star_wars_Theme_Song.wav");
+    }
+    
+    public void started()
+    {
+        tiempo.mark();
+    }
+       
+    public void act()
+    {
+        if(tiempo.millisElapsed() > 2000){
+            addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
+            addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 0);
+            tiempo.mark()
+        }
+    } 
 }

@@ -14,12 +14,18 @@ public class Meteorito extends Actor
      */
     public void act() 
     {
-        // Add your action code here.}
+        // Add your action code here.
+        setLocation(getX(),getY()+2);
         movimiento();
     }
     
     public void movimiento()
     {
-        setLocation(getX(), getY()+2);
+        Space mundo = (Space) getWorld();
+        setLocation(getX(), getY());
+        if(getY() > 498){
+            mundo.removeObject(this);
+        }
+        
     }
 }

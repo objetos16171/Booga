@@ -15,14 +15,16 @@ public class Enemigo extends Actor
     public void act() 
     {
         // Add your action code here.
+       move(1);
        movimiento();
     }    
     
     public void movimiento()
     {
-        move(2);
-        if(getX() == 680){
-            setLocation(getX()-2, getY());
+        Space mundo = (Space) getWorld();
+        setLocation(getX(), getY());
+        if(getX() > 640){
+            mundo.removeObject(this);
         }
     }
 }
