@@ -26,9 +26,13 @@ public class Jugador extends Actor
        if(Greenfoot.isKeyDown("down")){
       setLocation(getX(),getY()+3);
     }
-    if(isTouching(Moneda.class))     // condicion para cuando toca un cuadro y y eliminarlo para despues cabiar su direccion en Y
+    if(isTouching(Moneda.class))    
        {
            removeTouching(Moneda.class);
-       }// Add your action code here.
+       }
+    if(isTouching(Meteorito.class))    
+       {
+           removeTouching(Meteorito.class);
+       }
     }    
 }
