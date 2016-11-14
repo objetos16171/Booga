@@ -26,9 +26,10 @@ public class Space extends World
      */
     public void agrega()
     {
-        addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 0);
+        addObject(new Enemigo(),Greenfoot.getRandomNumber(580), 40);
         addObject(new Jugador(),300,420);
         addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
+        addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
        //Greenfoot.playSound("Star_wars_Theme_Song.wav");
     }
     
@@ -39,9 +40,10 @@ public class Space extends World
        
     public void act()
     {
-        if(tiempo.millisElapsed() > 2000){
+        if(tiempo.millisElapsed() > 3000){
             addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
-            addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 0);
+            addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
+            addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
             tiempo.mark();
         }
     } 
