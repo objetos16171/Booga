@@ -14,25 +14,23 @@ public class Jugador extends Actor
      */
     public void act() 
     {
-           if(Greenfoot.isKeyDown("left")){
-       move(-3);
-    }
+        if(Greenfoot.isKeyDown("left")){
+            move(-3);
+        }
         if(Greenfoot.isKeyDown("right")){
-       move(3);
-    }    
-    if(Greenfoot.isKeyDown("up")&& getY()>300){
-       setLocation(getX(),getY()-3);
-    }
-       if(Greenfoot.isKeyDown("down")){
-      setLocation(getX(),getY()+3);
-    }
-    if(isTouching(Moneda.class))    
-       {
+            move(3);
+        }    
+        if(Greenfoot.isKeyDown("up")&& getY()>300){
+            setLocation(getX(),getY()-3);
+        }
+        if(Greenfoot.isKeyDown("down")){
+            setLocation(getX(),getY()+3);
+        }
+        if(isTouching(Moneda.class)){
            removeTouching(Moneda.class);
-       }
-    if(isTouching(Meteorito.class))    
-       {
+        }
+        if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);
-       }
+        }
     }    
 }
