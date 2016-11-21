@@ -9,6 +9,10 @@ import java.util.LinkedList;
  */
 public class Space extends World
 {
+     private int numBalas = 100;  //numero de balas
+    private Counter contTiempo;  //contador de tiemp
+    private Counter contVidas;   //conntador de vidas
+    private Counter contPunt;    //contador de puntos
     private SimpleTimer tiempo = new SimpleTimer();
     private Enemigo ene;
     private Boton Start, Salir, Help;
@@ -26,6 +30,13 @@ public class Space extends World
         imagenes.add(new GreenfootImage("Start.png")); //1
         imagenes.add(new GreenfootImage("Salir.png"));//2
         imagenes.add(new GreenfootImage("Help.png")); //3
+        
+        contVidas = new Counter("Vidas: "); //contadores 
+        addObject(contVidas,68,480);
+        contVidas.setValue(3);
+        contPunt = new Counter("Puntos: ");
+        addObject(contPunt,640,480);
+        contPunt.setValue(0);               //contadores
         
         Start = new Boton(getImagen(1));
         Salir = new Boton(getImagen(2));
@@ -113,6 +124,24 @@ public class Space extends World
     public Boton getAyuda()
     {
         return Help;
+    }
+    
+    public int getNumBalls() { return numBalas; }  //regresa el numero de balas
+    
+    public void newBalas()  //anade balas al esenario
+   {
+      numBalas--;
+      addObject(new Bala(), 200, 222);
+    }
+    
+    public void decrementaVidas()  //Metodo para incrementar cont de vidas
+    {
+        contVidas.add(-1);
+    }
+    
+     public void incrmentaPuntos() //Metodo para incrementar cont de puntos
+    {
+        contPunt.add(+1);
     }
 }
 
