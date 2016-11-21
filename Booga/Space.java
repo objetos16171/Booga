@@ -25,18 +25,13 @@ public class Space extends World
         imagenes.add(new GreenfootImage("menu.jpg"));      //0
         imagenes.add(new GreenfootImage("Start.png")); //1
         imagenes.add(new GreenfootImage("Salir.png"));//2
-        imagenes.add(new GreenfootImage("Salir.png")); //3
+        imagenes.add(new GreenfootImage("Help.png")); //3
         
         Start = new Boton(getImagen(1));
         Salir = new Boton(getImagen(2));
         Help = new Boton(getImagen(3));
        
         menu();
-    }
-    
-    public void started()
-    {
-        tiempo.mark();
     }
     
     public void menu()
@@ -53,7 +48,7 @@ public class Space extends World
     {
         removeObjects(getObjects(null));
 
-        GreenfootImage hp = new GreenfootImage("help.jpg");
+        GreenfootImage hp = new GreenfootImage("Ayuda.png");
         setBackground(hp);
         addObject(Salir,100,50);  
     }
@@ -76,22 +71,33 @@ public class Space extends World
     
     public void nivel1()
     {
-        addObject(new Enemigo(),Greenfoot.getRandomNumber(580), 40);
+       addObject(new Enemigo(),Greenfoot.getRandomNumber(580), 40);
         addObject(new Jugador(),300,420);
         addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
         addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
-        //Greenfoot.playSound("Star_wars_Theme_Song.wav");
+        //Greenfoot.playSound("Star_wars_Theme_Song.wav")
+        agrega();
+
+    }
+    
+    public void agrega()
+    {
+         if(tiempo.millisElapsed() > 3000){
+            addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
+            addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
+            addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
+            tiempo.mark();
+        }
+    }
+    
+     public void started()
+    {
+        tiempo.mark();
     }
     
     public void act()
     {
-        
-        if(tiempo.millisElapsed() > 3000){
-            addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
-            addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
-            addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
-            tiempo.mark();
-        }
+        seleccionar();
     } 
     
     public GreenfootImage getImagen(int n)

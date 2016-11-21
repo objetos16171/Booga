@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sat Nov 19 20:24:13 CST 2016
+#Mon Nov 21 09:23:05 CST 2016
 class.Enemigo.image=14971205_1202154799850121_953388307_n.png
 dependency9.type=UsesDependency
 target4.type=ClassTarget
@@ -94,6 +94,7 @@ readme.height=58
 dependency10.from=Jugador
 readme.name=@README
 target2.name=Meteorito
+simulation.speed=40
 package.numDependencies=10
 class.Moneda.superclass=greenfoot.Actor
 dependency10.type=UsesDependency
