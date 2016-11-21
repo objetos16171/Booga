@@ -27,6 +27,5 @@ public class Moneda extends Actor
             mundo.removeObject(this);
         }
         
-    }
-     
+    }  
 }

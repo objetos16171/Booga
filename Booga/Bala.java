@@ -14,6 +14,12 @@ public class Bala extends Actor
      */
     public void act() 
     {
+       setLocation(getX(),getY()-4);
+       
+       if(isTouching(Meteorito.class)){
+           removeTouching(Meteorito.class);
+        }
+       
         // Add your action code here.
     }    
 }

@@ -128,10 +128,10 @@ public class Space extends World
     
     public int getNumBalls() { return numBalas; }  //regresa el numero de balas
     
-    public void newBalas()  //anade balas al esenario
+    public void newBalas(int Bx, int By)  //anade balas al esenario
    {
       numBalas--;
-      addObject(new Bala(), 200, 222);
+      addObject(new Bala(), Bx, By);
     }
     
     public void decrementaVidas()  //Metodo para incrementar cont de vidas

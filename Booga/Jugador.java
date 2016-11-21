@@ -14,6 +14,9 @@ public class Jugador extends Actor
      */
     public void act() 
     {
+         Space mundo = (Space) getWorld();
+        setLocation(getX(), getY());  //Locacion de la nave
+        
         if(Greenfoot.isKeyDown("left")){
             move(-3);
         }
@@ -31,6 +34,11 @@ public class Jugador extends Actor
         }
         if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);
+        }
+        
+        if(Greenfoot.isKeyDown("s")){ //Condicio para creacion de balas
+            mundo.newBalas(getX()+10,getY()-35);
+            mundo.newBalas(getX()-42,getY()-35);
         }
     }    
 }

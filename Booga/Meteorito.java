@@ -31,5 +31,7 @@ public class Meteorito extends Actor
         {
            mundo.decrementaVidas();  //Decremento en la vida del jugador
         }
+        
+        
     }
 }
