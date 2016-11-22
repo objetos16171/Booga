@@ -37,8 +37,8 @@ public class Jugador extends Actor
         }
         
         if(Greenfoot.isKeyDown("s")){ //Condicio para creacion de balas
-            mundo.newBalas(getX()+10,getY()-35);
-            mundo.newBalas(getX()-42,getY()-35);
+            mundo.newBalas(getX()+8,getY()-40);
+            mundo.newBalas(getX()-42,getY()-40);
         }
     }    
 }

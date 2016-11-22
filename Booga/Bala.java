@@ -14,10 +14,17 @@ public class Bala extends Actor
      */
     public void act() 
     {
+       Space mundo = (Space) getWorld();
        setLocation(getX(),getY()-4);
-       
+        
        if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);
+           mundo.incrmentaPuntos();
+        }
+        
+       if(isTouching(Enemigo.class)){
+           removeTouching(Enemigo.class);
+           mundo.incrmentaPuntos();
         }
        
         // Add your action code here.

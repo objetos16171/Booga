@@ -31,6 +31,7 @@ public class Space extends World
         imagenes.add(new GreenfootImage("Salir.png"));//2
         imagenes.add(new GreenfootImage("Help.png")); //3
         
+        
         contVidas = new Counter("Vidas: "); //contadores 
         addObject(contVidas,68,480);
         contVidas.setValue(3);
@@ -41,8 +42,8 @@ public class Space extends World
         Start = new Boton(getImagen(1));
         Salir = new Boton(getImagen(2));
         Help = new Boton(getImagen(3));
-       
-        menu();
+       menu();
+        
     }
     
     public void menu()
@@ -67,8 +68,9 @@ public class Space extends World
     public void seleccionar()
     {
         if(Greenfoot.mouseClicked(Salir)) {
-            removeObjects(getObjects(null));
             menu();
+            removeObjects(getObjects(null));
+            
         }
         if(Greenfoot.mouseClicked(Start)) {
             removeObjects(getObjects(null));
@@ -131,7 +133,9 @@ public class Space extends World
     public void newBalas(int Bx, int By)  //anade balas al esenario
    {
       numBalas--;
-      addObject(new Bala(), Bx, By);
+      if(numBalas>0){        // condicion capacidad de balas
+        addObject(new Bala(), Bx, By);
+    }
     }
     
     public void decrementaVidas()  //Metodo para incrementar cont de vidas
