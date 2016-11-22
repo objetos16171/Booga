@@ -12,12 +12,23 @@ public class Bala extends Actor
      * Act - do whatever the Bala wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private int eliminados=0;
     public void act() 
     {
-       Space mundo = (Space) getWorld();
        setLocation(getX(),getY()-4);
+       movimiento();
         
-       if(isTouching(Meteorito.class)){
+       
+       
+        // Add your action code here.
+    }
+    public void movimiento()
+    {
+        
+        Space mundo = (Space) getWorld();
+        
+    
+         if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);
            mundo.incrmentaPuntos();
         }
@@ -25,8 +36,11 @@ public class Bala extends Actor
        if(isTouching(Enemigo.class)){
            removeTouching(Enemigo.class);
            mundo.incrmentaPuntos();
+           eliminados++;
+           if(eliminados==10){
+           mundo.nivel2();
         }
-       
-        // Add your action code here.
-    }    
+        }
+        
+}
 }

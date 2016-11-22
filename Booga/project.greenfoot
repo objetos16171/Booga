@@ -157,6 +157,7 @@ target7.x=70
 target7.y=70
 target8.height=50
 target8.name=Bala
+target8.naviview.expanded=true
 target8.showInterface=false
 target8.type=ClassTarget
 target8.typeParameters=

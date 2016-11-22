@@ -92,6 +92,12 @@ public class Space extends World
         agrega();
 
     }
+    public void nivel2()
+    {
+      
+        agrega();
+
+    }
     
     public void agrega()
     {
