@@ -17,17 +17,10 @@ public class Bala extends Actor
     {
        setLocation(getX(),getY()-4);
        movimiento();
-        
-       
-       
-        // Add your action code here.
     }
     public void movimiento()
     {
-        
         Space mundo = (Space) getWorld();
-        
-    
          if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);
            mundo.incrmentaPuntos();
@@ -37,10 +30,10 @@ public class Bala extends Actor
            removeTouching(Enemigo.class);
            mundo.incrmentaPuntos();
            eliminados++;
+           
            if(eliminados==10){
            mundo.nivel2();
-        }
-        }
-        
-}
+           }
+       }
+     }
 }

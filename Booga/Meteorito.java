@@ -26,12 +26,18 @@ public class Meteorito extends Actor
         if(getY() > 498){
             mundo.removeObject(this);
         }
-        
-         if(isTouching(Jugador.class))//Condicion para choque de meteorito con jugador
+        else
+        {
+        if(isTouching(Jugador.class))//Condicion para choque de meteorito con jugador
         {
            mundo.decrementaVidas();  //Decremento en la vida del jugador
         }
-        
-        
+        else{
+            if(isTouching(Bala.class))//Condicion para choque de meteorito con jugador
+            {
+                removeTouching(Bala.class);  //Decremento en la vida del jugador
+            }
+        }
+        }
     }
 }
