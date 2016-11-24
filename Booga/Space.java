@@ -76,6 +76,7 @@ public class Space extends World
     
     public void nivel1()
     {
+        setBackground("space1.jpg");
         addObject(new Enemigo(),Greenfoot.getRandomNumber(580), 40);
         addObject(new Jugador(),300,420);
         addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
@@ -115,9 +116,13 @@ public class Space extends World
     public void act()
     {
         seleccionar();
-        if(l == 1)
-        {
+        if(l == 1){
             agrega();
+        }
+        else{ 
+            if(l == 2){
+                agrega();
+            }
         }
     } 
     
@@ -145,7 +150,18 @@ public class Space extends World
         addObject(new Bala(), Bx, By);
       }
     }
-    
+   
+   public void muerte()
+   {
+       decrementaVidas();
+       if(contVidas.getValue() < 0)
+       {
+           Label etiquetaFin = new Label("Game Over",10);
+           addObject(etiquetaFin,250,300);
+           Greenfoot.stop();
+       }
+   }
+   
     public void decrementaVidas()  //Metodo para incrementar cont de vidas
     {
         contVidas.add(-1);

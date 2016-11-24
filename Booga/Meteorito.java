@@ -30,7 +30,7 @@ public class Meteorito extends Actor
         {
         if(isTouching(Jugador.class))//Condicion para choque de meteorito con jugador
         {
-           mundo.decrementaVidas();  //Decremento en la vida del jugador
+           mundo.muerte();  //Decremento en la vida del jugador
         }
         else{
             if(isTouching(Bala.class))//Condicion para choque de meteorito con jugador

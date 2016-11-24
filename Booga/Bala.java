@@ -32,7 +32,7 @@ public class Bala extends Actor
            eliminados++;
            
            if(eliminados==10){
-           mundo.nivel2();
+               mundo.act();
            }
        }
      }
