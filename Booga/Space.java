@@ -39,6 +39,10 @@ public class Space extends World
         
     }
     
+    /**
+     * Metodo que crea el menú del juego. 
+     * Manda a llamar las imagenes de los botones y el del fondo
+     */
     public void menu()
     {
         removeObjects(getObjects(null));
@@ -48,6 +52,10 @@ public class Space extends World
         setBackground(getImagen(0));
     }
     
+    /**
+     * Metodo que crea la ayuda. La ayuda se manda a llamar
+     * la imagen de ayuda y el boton de salir.
+     */
     public void Help()
     {
         removeObjects(getObjects(null));
@@ -57,6 +65,10 @@ public class Space extends World
         addObject(Salir,740,450);  
     }
     
+    /**
+     * Metodo donde aparece los botones en el menú.
+     * Se selecciona el boton de jugar, ayuda y salir.
+     */
     public void seleccionar()
     {
         if(Greenfoot.mouseClicked(Salir)) {
@@ -91,6 +103,7 @@ public class Space extends World
         contPunt.setValue(0);   
 
     }
+    
     public void nivel2()
     {
       
@@ -162,11 +175,17 @@ public class Space extends World
        }
    }
    
+   /**
+    * Metodo donde se decrementan las vidas del jugador.
+    */
     public void decrementaVidas()  //Metodo para incrementar cont de vidas
     {
         contVidas.add(-1);
     }
     
+    /**
+     * 
+     */
      public void incrmentaPuntos() //Metodo para incrementar cont de puntos
     {
         contPunt.add(+1);
