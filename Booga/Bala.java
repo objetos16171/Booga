@@ -31,8 +31,9 @@ public class Bala extends Actor
            mundo.incrmentaPuntos();
            eliminados++;
            
-           if(eliminados==10){
-               mundo.act();
+           if(eliminados==3){
+             
+             mundo.agrega(1);
            }
        }
      }

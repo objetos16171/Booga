@@ -23,21 +23,15 @@ public class Meteorito extends Actor
     {
         Space mundo = (Space) getWorld();
         setLocation(getX(), getY());
-        if(getY() > 498){
-            mundo.removeObject(this);
-        }
-        else
-        {
-        if(isTouching(Jugador.class))//Condicion para choque de meteorito con jugador
-        {
-           mundo.muerte();  //Decremento en la vida del jugador
-        }
-        else{
-            if(isTouching(Bala.class))//Condicion para choque de meteorito con jugador
+        if(isTouching(Bala.class))//Condicion para choque de meteorito con jugador
             {
                 removeTouching(Bala.class);  //Decremento en la vida del jugador
             }
+        if(getY() > 498){
+            mundo.removeObject(this);
         }
+         
+        
         }
     }
-}
+
