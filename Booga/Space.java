@@ -14,6 +14,7 @@ public class Space extends World
     private Counter contVidas;   //conntador de vidas
     private Counter contPunt;    //contador de puntos
     private SimpleTimer tiempo = new SimpleTimer();
+    private SimpleTimer tiempo2 = new SimpleTimer();
     private Enemigo ene;
     private Boton Start, Salir, Help;
     private LinkedList <GreenfootImage> imagenes;
@@ -124,7 +125,7 @@ public class Space extends World
          if(jefe==1){
          removeObjects(getObjects(null));
          addObject(new Jugador(),300,420);
-         addObject(new Jefe1(),Greenfoot.getRandomNumber(600), 40);
+         addObject(new Jefe1(),Greenfoot.getRandomNumber(480), 40);
         }
         else{
         if(tiempo.millisElapsed() > 5000){
@@ -133,9 +134,9 @@ public class Space extends World
             addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
             tiempo.mark();
         }
-        if(tiempo.millisElapsed() > 5000){
+        if(tiempo2.millisElapsed() > 5000){
            addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
-           tiempo.mark();
+           tiempo2.mark();
            }
        
             
@@ -187,7 +188,11 @@ public class Space extends World
         addObject(new Bala(), Bx, By);
       }
     }
-   
+    public void newBalljefe(int Ax, int Ay){
+     addObject(new Bala(), Ax, Ay);
+    }
+    
+  
    public void muerte()
    {
        decrementaVidas();

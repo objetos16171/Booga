@@ -10,7 +10,7 @@ public class Jugador extends Actor
 {
     private int esc=0;
     private Counter contTiempo;
-    private SimpleTimer tiempo = new SimpleTimer();
+    private SimpleTimer tiempo3 = new SimpleTimer();
     /**
      * Act - do whatever the Jugador wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -50,17 +50,18 @@ public class Jugador extends Actor
         if(isTouching(Escudo.class)){
            removeTouching(Escudo.class);
            esc=1;
-         if(tiempo.millisElapsed() > 5000){
-                esc=0;
-                tiempo.mark();
-                }
-            
-           
         }
-        
-        if(Greenfoot.isKeyDown("s")){ //Condicio para creacion de balas
+        if(tiempo3.millisElapsed() > 10000){
+                esc=0;
+                tiempo3.mark();
+                }
+            if(Greenfoot.isKeyDown("s")){ //Condicio para creacion de balas
             mundo.newBalas(getX()+8,getY()-40);
             mundo.newBalas(getX()-42,getY()-40);
         }
+           
+        }
+        
+       
     }    
-}
+

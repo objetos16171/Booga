@@ -8,13 +8,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Jefe1 extends Enemigo
 {
+    public int velx=3;
+    private SimpleTimer tiempo = new SimpleTimer();
     /**
      * Act - do whatever the Jefe1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-       move(1);
-       super.movimiento();
+        Space mundo = (Space) getWorld();
+        move(velx);
+        movimiento();
+        dispara();
     }    
+    public void movimiento(){
+    if(getX()==480){
+     velx=-velx;
+    }
+    if(getX()==0){
+     velx=-velx;
+    }
+}
+public void dispara(){
+if(tiempo.millisElapsed() > 5000){
+    //mundo.newBalljefe(getX(),getY()+20); 
+           
+}
+}
 }

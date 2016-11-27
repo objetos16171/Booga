@@ -24,7 +24,7 @@ public class Enemigo extends Actor
     {
         Space mundo = (Space) getWorld();
         setLocation(getX(), getY()+2);
-        if(getX() > 640){
+        if(getX() > 640 || getY() > 498){
             mundo.removeObject(this);
         }
     } 
