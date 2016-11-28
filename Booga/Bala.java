@@ -33,7 +33,11 @@ public class Bala extends Actor
            
            if(eliminados==1){
              
+<<<<<<< HEAD
              mundo.jefe(1);
+=======
+             mundo.agrega(1);
+>>>>>>> origin/master
            }
         }else if(isTouching(Jefe1.class)){
            removeTouching(Jefe1.class);

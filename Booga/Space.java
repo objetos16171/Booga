@@ -97,10 +97,17 @@ public class Space extends World
         addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
         addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
         
+<<<<<<< HEAD
         /*if(jefe==1){
          removeObjects(getObjects(null));
          addObject(new Jugador(),300,420);
         }*/
+=======
+        if(jefe==1){
+         removeObjects(getObjects(null));
+         addObject(new Jugador(),300,420);
+        }
+>>>>>>> origin/master
         //Greenfoot.playSound("Star_wars_Theme_Song.wav")
         
         contVidas = new Counter("Vidas: "); //contadores 
@@ -114,11 +121,16 @@ public class Space extends World
     
     public void nivel2()
     {
+<<<<<<< HEAD
         Greenfoot.stop();
+=======
+      
+>>>>>>> origin/master
         removeObjects(getObjects(null));
 
     }
     
+<<<<<<< HEAD
     public void agrega1()
     {
         
@@ -139,12 +151,24 @@ public class Space extends World
     
     public void agrega()
     {
+=======
+    public void agrega(int jefe)
+    {
+        
+         if(jefe==1){
+         removeObjects(getObjects(null));
+         addObject(new Jugador(),300,420);
+         addObject(new Jefe1(),Greenfoot.getRandomNumber(480), 40);
+        }
+        else{
+>>>>>>> origin/master
         if(tiempo.millisElapsed() > 5000){
             addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
             addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
             addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
             tiempo.mark();
         }
+<<<<<<< HEAD
         else{
             if(tiempo2.millisElapsed() > 10000){
                 addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
@@ -163,6 +187,20 @@ public class Space extends World
         }
     }
   
+=======
+        if(tiempo2.millisElapsed() > 5000){
+           addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
+           tiempo2.mark();
+           }
+       
+            
+    }
+    
+    
+}
+  
+    
+>>>>>>> origin/master
      public void started()
     {
         tiempo.mark();
@@ -172,12 +210,16 @@ public class Space extends World
     {
         seleccionar();
         if(l == 1){
-            agrega();
+            agrega(jefe);
         }
         else{ 
             if(l == 2){
+<<<<<<< HEAD
                 
                 agrega1();
+=======
+                agrega(jefe);
+>>>>>>> origin/master
             }
         }
     } 
@@ -206,7 +248,10 @@ public class Space extends World
         addObject(new Bala(), Bx, By);
       }
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/master
     public void newBalljefe(int Ax, int Ay){
      addObject(new Bala(), Ax, Ay);
     }
