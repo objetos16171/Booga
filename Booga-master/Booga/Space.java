@@ -200,7 +200,7 @@ public class Space extends World
       }
     }
     public void newBalljefe(int Ax, int Ay){
-     addObject(new Bala(), Ax, Ay);
+     addObject(new Balljefe(), Ax, Ay);
     }
     
   
