@@ -14,10 +14,13 @@ public class Space extends World
     private Counter contVidas;   //conntador de vidas
     private Counter contPunt;    //contador de puntos
     private SimpleTimer tiempo = new SimpleTimer();
+    private SimpleTimer tiempo2 = new SimpleTimer();
     private Enemigo ene;
     private Boton Start, Salir, Help;
     private LinkedList <GreenfootImage> imagenes;
-    private int l = 0;  //contador de nivel
+    private int l = 0; 
+    private int jefe = 0;
+    //contador de nivel
     /**
      * Constructor for objects of class Space.
      * 
@@ -93,6 +96,11 @@ public class Space extends World
         addObject(new Jugador(),300,420);
         addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
         addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
+        
+        /*if(jefe==1){
+         removeObjects(getObjects(null));
+         addObject(new Jugador(),300,420);
+        }*/
         //Greenfoot.playSound("Star_wars_Theme_Song.wav")
         
         contVidas = new Counter("Vidas: "); //contadores 
@@ -106,21 +114,55 @@ public class Space extends World
     
     public void nivel2()
     {
-      
-        agrega();
+        Greenfoot.stop();
+        removeObjects(getObjects(null));
 
     }
     
-    public void agrega()
+    public void agrega1()
     {
-         if(tiempo.millisElapsed() > 3000){
+        
+        if(tiempo.millisElapsed() > 5000){
             addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
             addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
             addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
             tiempo.mark();
         }
+        else{
+            if(tiempo2.millisElapsed() > 10000){
+                addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
+                tiempo2.mark();
+           }
+        }
+            
     }
     
+    public void agrega()
+    {
+        if(tiempo.millisElapsed() > 5000){
+            addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
+            addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
+            addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
+            tiempo.mark();
+        }
+        else{
+            if(tiempo2.millisElapsed() > 10000){
+                addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
+                tiempo2.mark();
+           }
+        }
+    }
+    
+    
+    public void jefe(int jefe)
+    {
+        if(jefe == 1){
+            removeObjects(getObjects(null));
+            addObject(new Jugador(),300,420);
+            addObject(new Jefe1(),Greenfoot.getRandomNumber(480), 40);
+        }
+    }
+  
      public void started()
     {
         tiempo.mark();
@@ -134,7 +176,8 @@ public class Space extends World
         }
         else{ 
             if(l == 2){
-                agrega();
+                
+                agrega1();
             }
         }
     } 
@@ -163,11 +206,16 @@ public class Space extends World
         addObject(new Bala(), Bx, By);
       }
     }
-   
+    
+    public void newBalljefe(int Ax, int Ay){
+     addObject(new Bala(), Ax, Ay);
+    }
+    
+  
    public void muerte()
    {
        decrementaVidas();
-       if(contVidas.getValue() < 0)
+       if(contVidas.getValue() == 0)
        {
            Label etiquetaFin = new Label("Game Over",10);
            addObject(etiquetaFin,250,300);

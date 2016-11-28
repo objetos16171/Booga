@@ -31,9 +31,13 @@ public class Bala extends Actor
            mundo.incrmentaPuntos();
            eliminados++;
            
-           if(eliminados==10){
-               mundo.act();
+           if(eliminados==1){
+             
+             mundo.jefe(1);
            }
-       }
+        }else if(isTouching(Jefe1.class)){
+           removeTouching(Jefe1.class);
+           mundo.nivel2();
+        }
      }
 }
