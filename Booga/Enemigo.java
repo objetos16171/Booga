@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.LinkedList;
 
 /**
  * Write a description of class Enemigo here.
@@ -8,16 +9,32 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemigo extends Actor
 {
+    private LinkedList <GreenfootImage> imagenes;
+    private int lv = 0;
+    private int vida = 1;
+    private SimpleTimer tiempo = new SimpleTimer();
     /**
-     * Act - do whatever the Enemigo wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor del enemigo
      */
+    public Enemigo()
+    {
+        imagenes = new LinkedList();
+        imagenes.add(new GreenfootImage("Jefe1.jpg"));      //0
+        imagenes.add(new GreenfootImage("Enemigo2.jpg")); 
+    }
     
     public void act() 
     {
         // Add your action code here.
-       move(1);
        movimiento();
+       if(lv==1)
+       {
+           getImagen(0);
+        }
+        if(lv==1)
+       {
+           getImagen(1);
+        }
     }    
     
     public void movimiento()
@@ -28,4 +45,23 @@ public class Enemigo extends Actor
             mundo.removeObject(this);
         }
     } 
+    public void dispara(){
+     Space mundo = (Space) getWorld();
+    if(tiempo.millisElapsed() > 5000){
+      mundo.newBalljefe(getX(),getY()+20); 
+       tiempo.mark();
+           
+     }
 }
+ 
+    public void setNivel(int lvl)
+    {
+        lv=lvl;
+    }
+    
+    public GreenfootImage getImagen(int n)
+    {
+        return imagenes.get(n);
+    }
+}
+

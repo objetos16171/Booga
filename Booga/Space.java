@@ -1,6 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.LinkedList;
-
 /**
  * Write a description of class Space here.
  * 
@@ -9,16 +8,20 @@ import java.util.LinkedList;
  */
 public class Space extends World
 {
-     private int numBalas = 100;  //numero de balas
+    private int numBalas = 100;  //numero de balas
     private Counter contTiempo;  //contador de tiemp
     private Counter contVidas;   //conntador de vidas
-    private Counter contPunt;    //contador de puntos
+    private Counter contPunt;
+    private int contMuer;
+    private Counter contnivel;//contador de puntos
     private SimpleTimer tiempo = new SimpleTimer();
     private SimpleTimer tiempo2 = new SimpleTimer();
+    private SimpleTimer tiempo3 = new SimpleTimer();
     private Enemigo ene;
     private Boton Start, Salir, Help;
     private LinkedList <GreenfootImage> imagenes;
     private int l = 0; 
+     private int ban = 0;
     private int jefe = 0;
     //contador de nivel
     /**
@@ -38,8 +41,7 @@ public class Space extends World
         Start = new Boton(getImagen(1));
         Salir = new Boton(getImagen(2));
         Help = new Boton(getImagen(3));
-       menu();
-        
+       menu();  
     }
     
     /**
@@ -68,10 +70,7 @@ public class Space extends World
         addObject(Salir,740,450);  
     }
     
-    /**
-     * Metodo donde aparece los botones en el menú.
-     * Se selecciona el boton de jugar, ayuda y salir.
-     */
+   
     public void seleccionar()
     {
         if(Greenfoot.mouseClicked(Salir)) {
@@ -96,131 +95,116 @@ public class Space extends World
         addObject(new Jugador(),300,420);
         addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
         addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
+        Greenfoot.setSpeed(40);
         
-<<<<<<< HEAD
+        agrega();
+    
         /*if(jefe==1){
          removeObjects(getObjects(null));
          addObject(new Jugador(),300,420);
         }*/
-=======
-        if(jefe==1){
-         removeObjects(getObjects(null));
-         addObject(new Jugador(),300,420);
-        }
->>>>>>> origin/master
-        //Greenfoot.playSound("Star_wars_Theme_Song.wav")
-        
+         
+        //Greenfoot.playSound("Star_wars_Theme_Song.wav") 
         contVidas = new Counter("Vidas: "); //contadores 
         addObject(contVidas,68,480);
+        contnivel = new Counter("Nivel: "); //contadores 
+        addObject(contnivel,68,20);
         contVidas.setValue(3);
         contPunt = new Counter("Puntos: ");
         addObject(contPunt,640,480);
-        contPunt.setValue(0);   
-
+        contPunt.setValue(0);
     }
     
     public void nivel2()
     {
-<<<<<<< HEAD
-        Greenfoot.stop();
-=======
-      
->>>>>>> origin/master
+        ban=0;
         removeObjects(getObjects(null));
+        setBackground("Fondo2.jpg");
+        addObject(new Jugador(),300,420);
+        Greenfoot.setSpeed(45);
+        
+        agrega();
 
+        addObject(contVidas,68,480);
+        contVidas.setValue(contVidas.getValue());
+        addObject(contPunt,640,480);
+        contPunt.setValue(contPunt.getValue());
+        contnivel = new Counter("nivel: 2"); //contadores 
+        addObject(contnivel,68,20);
     }
     
-<<<<<<< HEAD
-    public void agrega1()
+    public void nivel3(){
+        ban=0;
+        removeObjects(getObjects(null));
+        setBackground("Fondo3.jpg");
+        addObject(new Jugador(),300,420);
+        Greenfoot.setSpeed(50);
+        if(ban==0){
+        agrega();
+        }
+        addObject(contVidas,68,480);
+        contVidas.setValue(contVidas.getValue());
+        addObject(contPunt,640,480);
+        contPunt.setValue(contPunt.getValue());
+        contnivel = new Counter("nivel: 3"); //contadores 
+        addObject(contnivel,68,20);
+    }
+    
+    public void agrega()//se
     {
-        
+       if(ban==0){ 
         if(tiempo.millisElapsed() > 5000){
             addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
             addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
             addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
             tiempo.mark();
-        }
-        else{
+         }
+         else{
             if(tiempo2.millisElapsed() > 10000){
                 addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
+                addObject(new Recarga(),Greenfoot.getRandomNumber(600), 0);
                 tiempo2.mark();
            }
-        }
-            
-    }
-    
-    public void agrega()
-    {
-=======
-    public void agrega(int jefe)
-    {
-        
-         if(jefe==1){
-         removeObjects(getObjects(null));
-         addObject(new Jugador(),300,420);
-         addObject(new Jefe1(),Greenfoot.getRandomNumber(480), 40);
-        }
-        else{
->>>>>>> origin/master
-        if(tiempo.millisElapsed() > 5000){
-            addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
-            addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
-            addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
-            tiempo.mark();
-        }
-<<<<<<< HEAD
-        else{
-            if(tiempo2.millisElapsed() > 10000){
-                addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
-                tiempo2.mark();
-           }
+         }
         }
     }
-    
-    
+       
     public void jefe(int jefe)
     {
+        ban=1;
         if(jefe == 1){
             removeObjects(getObjects(null));
             addObject(new Jugador(),300,420);
             addObject(new Jefe1(),Greenfoot.getRandomNumber(480), 40);
+           
         }
-    }
-  
-=======
-        if(tiempo2.millisElapsed() > 5000){
+        if(jefe == 2){
+            removeObjects(getObjects(null));
+            addObject(new Jugador(),300,420);
+            addObject(new Jefe2(),Greenfoot.getRandomNumber(480), 40);
+        }
+        if(jefe == 3){
+            removeObjects(getObjects(null));
+            addObject(new Jugador(),300,420);
+            addObject(new Jefe3(),Greenfoot.getRandomNumber(480), 40);
+        }
+        if(tiempo3.millisElapsed() > 5000){
            addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
            tiempo2.mark();
-           }
-       
-            
+          }      
     }
-    
-    
-}
-  
-    
->>>>>>> origin/master
+
      public void started()
     {
         tiempo.mark();
+        tiempo2.mark();
     }
     
     public void act()
     {
         seleccionar();
         if(l == 1){
-            agrega(jefe);
-        }
-        else{ 
-            if(l == 2){
-<<<<<<< HEAD
-                
-                agrega1();
-=======
-                agrega(jefe);
->>>>>>> origin/master
-            }
+            agrega();
         }
     } 
     
@@ -239,6 +223,16 @@ public class Space extends World
         return Help;
     }
     
+    public void generaEscudo(int Bx, int By ) //Genera el escudo burbuja 
+    {
+        addObject(new EscudoBurbuja(),Bx,By);
+    }
+    
+    public void remueveEscudo() //Remueve el escudo
+    { 
+        
+    }
+    
     public int getNumBalls() { return numBalas; }  //regresa el numero de balas
     
     public void newBalas(int Bx, int By)  //anade balas al esenario
@@ -248,25 +242,32 @@ public class Space extends World
         addObject(new Bala(), Bx, By);
       }
     }
-<<<<<<< HEAD
     
-=======
->>>>>>> origin/master
-    public void newBalljefe(int Ax, int Ay){
-     addObject(new Bala(), Ax, Ay);
-    }
+   public void setBalas(int val){
+       numBalas=val;
+   }
+
+   public void newBalljefe(int Ax, int Ay){
+     addObject(new Balljefe(), Ax, Ay);
+   }
     
   
    public void muerte()
    {
        decrementaVidas();
-       if(contVidas.getValue() == 0)
+       if(contVidas.getValue() <= 0)
        {
-           Label etiquetaFin = new Label("Game Over",10);
+           Label etiquetaFin = new Label("Game Over",100);
            addObject(etiquetaFin,250,300);
            Greenfoot.stop();
        }
    }
+   
+   public void Gana(){
+       Label etiquetaFin = new Label("finnnnn",100);
+       addObject(etiquetaFin,250,300);
+       Greenfoot.stop();
+    }
    
    /**
     * Metodo donde se decrementan las vidas del jugador.
@@ -277,11 +278,20 @@ public class Space extends World
     }
     
     /**
-     * 
+     * Metodo para incrementar cont de puntos
      */
-     public void incrmentaPuntos() //Metodo para incrementar cont de puntos
+     public void incrmentaPuntos() 
     {
         contPunt.add(+1);
     }
-}
-
+    
+    public void cuentaEnemigos()
+    {
+        contMuer++;
+    }
+    
+    public int getcuE()
+    {
+        return contMuer;
+    }
+   }

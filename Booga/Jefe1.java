@@ -18,21 +18,17 @@ public class Jefe1 extends Enemigo
     {
         Space mundo = (Space) getWorld();
         move(velx);
-        movimiento();
         dispara();
-    }    
+        movimiento();
+    } 
+    
     public void movimiento(){
     if(getX()==480){
-     velx=-velx;
+        velx=-velx;
     }
     if(getX()==0){
-     velx=-velx;
+        velx=-velx;
     }
+   }
 }
-public void dispara(){
-if(tiempo.millisElapsed() > 5000){
-    //mundo.newBalljefe(getX(),getY()+20); 
-           
-}
-}
-}
+

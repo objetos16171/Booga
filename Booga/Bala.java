@@ -18,30 +18,50 @@ public class Bala extends Actor
        setLocation(getX(),getY()-4);
        movimiento();
     }
+    
     public void movimiento()
     {
+
         Space mundo = (Space) getWorld();
-         if(isTouching(Meteorito.class)){
+        mundo.getcuE();
+        if(getY()==0)
+        {
+           setLocation(800,getY());
+        }
+        if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);
            mundo.incrmentaPuntos();
         }
         
-       if(isTouching(Enemigo.class)){
-           removeTouching(Enemigo.class);
-           mundo.incrmentaPuntos();
-           eliminados++;
-           
-           if(eliminados==1){
-             
-<<<<<<< HEAD
-             mundo.jefe(1);
-=======
-             mundo.agrega(1);
->>>>>>> origin/master
-           }
-        }else if(isTouching(Jefe1.class)){
+        if(isTouching(Jefe1.class)){
            removeTouching(Jefe1.class);
            mundo.nivel2();
+        }else
+           if(isTouching(Jefe2.class)){
+           removeTouching(Jefe2.class);
+           mundo.nivel3();
         }
-     }
+        else
+        if(isTouching(Jefe3.class)){
+           removeTouching(Jefe3.class);
+           mundo.Gana();
+        }else
+        if(isTouching(Enemigo.class)){
+            mundo.cuentaEnemigos();
+           removeTouching(Enemigo.class);
+           mundo.incrmentaPuntos();
+           if(mundo.getcuE()== 2){
+               mundo.jefe(1);
+           }else
+           if(mundo.getcuE()== 4){
+               mundo.jefe(2);
+           }
+           else
+           if(mundo.getcuE()== 6){
+               mundo.jefe(3);
+           }
+        }
+   }    
 }
+     
+    

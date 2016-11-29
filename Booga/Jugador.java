@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Jugador extends Actor
 {
     private int esc=0;
+    private int escudo=0;
     private Counter contTiempo;
     private SimpleTimer tiempo3 = new SimpleTimer();
     /**
@@ -34,34 +35,50 @@ public class Jugador extends Actor
         }
         if(isTouching(Moneda.class)){
            removeTouching(Moneda.class);
+           mundo.incrmentaPuntos();
+        }
+        if(isTouching(Recarga.class)){
+           mundo.setBalas(100);
+           removeTouching(Recarga.class);
         }
         if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);
            if(esc==0){
            mundo.muerte();
-        }
+          }
         }
         if(isTouching(Enemigo.class)){
            removeTouching(Enemigo.class);
             if(esc==0){
            mundo.muerte();
+          }
         }
+        if(isTouching(Balljefe.class)){
+           removeTouching(Balljefe.class);
+            if(esc==0){
+           mundo.muerte();
+          }
         }
-        if(isTouching(Escudo.class)){
-           removeTouching(Escudo.class);
+        
+        if(isTouching(Escudo.class)) //condicion para creacion del escudo
+        {  
+            if(esc==0){
+               escudo+=1;
+               removeTouching(Escudo.class);
+               mundo.generaEscudo(getX(), getY());
+            if(Greenfoot.getRandomNumber(100)>1)
+            {
+               mundo.remueveEscudo();
+               esc=0;
+            } 
+           }
            esc=1;
         }
-        if(tiempo3.millisElapsed() > 10000){
-                esc=0;
-                tiempo3.mark();
-                }
+              
             if(Greenfoot.isKeyDown("s")){ //Condicio para creacion de balas
             mundo.newBalas(getX()+8,getY()-40);
             mundo.newBalas(getX()-42,getY()-40);
         }
-           
-        }
-        
-       
+    } 
     }    
 
