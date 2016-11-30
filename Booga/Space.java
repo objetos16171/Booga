@@ -32,7 +32,7 @@ public class Space extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 500, 1);
-         imagenes = new LinkedList();
+        imagenes = new LinkedList();
         imagenes.add(new GreenfootImage("menu.jpg"));      //0
         imagenes.add(new GreenfootImage("Start.png")); //1
         imagenes.add(new GreenfootImage("Salir.png"));//2
@@ -69,8 +69,7 @@ public class Space extends World
         setBackground(hp);
         addObject(Salir,740,450);  
     }
-    
-   
+     
     public void seleccionar()
     {
         if(Greenfoot.mouseClicked(Salir)) {
@@ -140,7 +139,7 @@ public class Space extends World
         addObject(new Jugador(),300,420);
         Greenfoot.setSpeed(50);
         if(ban==0){
-        agrega();
+         agrega();
         }
         addObject(contVidas,68,480);
         contVidas.setValue(contVidas.getValue());
@@ -162,7 +161,7 @@ public class Space extends World
          else{
             if(tiempo2.millisElapsed() > 10000){
                 addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
-                addObject(new Recarga(),Greenfoot.getRandomNumber(600), 0);
+                addObject(new recarga(),Greenfoot.getRandomNumber(600), 0);
                 tiempo2.mark();
            }
          }
@@ -294,4 +293,4 @@ public class Space extends World
     {
         return contMuer;
     }
-   }
+}

@@ -25,7 +25,9 @@ public class Moneda extends Actor
         setLocation(getX(), getY());
         if(getY() > 498){
             mundo.removeObject(this);
+        }else
+         if(isTouching(Jugador.class)){
+           mundo.incrmentaPuntos();
         }
-        
-    }  
+     }  
 }

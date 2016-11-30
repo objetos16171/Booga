@@ -47,12 +47,12 @@ public class Enemigo extends Actor
     } 
     public void dispara(){
      Space mundo = (Space) getWorld();
-    if(tiempo.millisElapsed() > 5000){
+     if(tiempo.millisElapsed() > 5000){
       mundo.newBalljefe(getX(),getY()+20); 
        tiempo.mark();
            
      }
-}
+    }
  
     public void setNivel(int lvl)
     {

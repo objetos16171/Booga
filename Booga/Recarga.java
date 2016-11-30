@@ -6,14 +6,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Recarga extends Actor
+public class recarga extends Actor
 {
-    /**
-     * Act - do whatever the Recarga wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
-    {
+    { 
         // Add your action code here.
-    }    
+        setLocation(getX(),getY()+2);
+        movimiento();
+    }
+    
+    public void movimiento()
+    {
+        Space mundo = (Space) getWorld();
+        setLocation(getX(), getY());
+        if(getY() > 498)//Condicion para choque de meteorito con jugador
+            {
+                mundo.removeObject(this);
+            } 
+    }
 }

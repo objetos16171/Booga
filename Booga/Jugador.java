@@ -37,9 +37,9 @@ public class Jugador extends Actor
            removeTouching(Moneda.class);
            mundo.incrmentaPuntos();
         }
-        if(isTouching(Recarga.class)){
+        if(isTouching(recarga.class)){
            mundo.setBalas(100);
-           removeTouching(Recarga.class);
+           removeTouching(recarga.class);
         }
         if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);
@@ -80,5 +80,5 @@ public class Jugador extends Actor
             mundo.newBalas(getX()-42,getY()-40);
         }
     } 
-    }    
+}    
 
