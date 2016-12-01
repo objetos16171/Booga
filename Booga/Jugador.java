@@ -37,9 +37,9 @@ public class Jugador extends Actor
            removeTouching(Moneda.class);
            mundo.incrmentaPuntos();
         }
-        if(isTouching(recarga.class)){
+        if(isTouching(Recarga.class)){
            mundo.setBalas(100);
-           removeTouching(recarga.class);
+           removeTouching(Recarga.class);
         }
         if(isTouching(Meteorito.class)){
            removeTouching(Meteorito.class);

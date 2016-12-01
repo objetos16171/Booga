@@ -169,7 +169,7 @@ public class Space extends World
             }
             if(tiempo4.millisElapsed() > 20000){
                 addObject(new Vida(),Greenfoot.getRandomNumber(600), 40);
-                addObject(new recarga(),Greenfoot.getRandomNumber(600), 0);
+                addObject(new Recarga(),Greenfoot.getRandomNumber(600), 0);
                  tiempo4.mark();
             }
         
