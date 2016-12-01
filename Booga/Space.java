@@ -17,6 +17,7 @@ public class Space extends World
     private SimpleTimer tiempo = new SimpleTimer();
     private SimpleTimer tiempo2 = new SimpleTimer();
     private SimpleTimer tiempo3 = new SimpleTimer();
+    private SimpleTimer tiempo4 = new SimpleTimer();
     private Enemigo ene;
     private Boton Start, Salir, Help;
     private LinkedList <GreenfootImage> imagenes;
@@ -94,14 +95,10 @@ public class Space extends World
         addObject(new Jugador(),300,420);
         addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
         addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
-        Greenfoot.setSpeed(40);
+        Greenfoot.setSpeed(45);
         
         agrega();
-    
-        /*if(jefe==1){
-         removeObjects(getObjects(null));
-         addObject(new Jugador(),300,420);
-        }*/
+  
          
         //Greenfoot.playSound("Star_wars_Theme_Song.wav") 
         contVidas = new Counter("Vidas: "); //contadores 
@@ -120,7 +117,7 @@ public class Space extends World
         removeObjects(getObjects(null));
         setBackground("Fondo2.jpg");
         addObject(new Jugador(),300,420);
-        Greenfoot.setSpeed(45);
+        Greenfoot.setSpeed(50);
         
         agrega();
 
@@ -137,9 +134,9 @@ public class Space extends World
         removeObjects(getObjects(null));
         setBackground("Fondo3.jpg");
         addObject(new Jugador(),300,420);
-        Greenfoot.setSpeed(50);
+        Greenfoot.setSpeed(55);
         if(ban==0){
-         agrega();
+        agrega();
         }
         addObject(contVidas,68,480);
         contVidas.setValue(contVidas.getValue());
@@ -154,19 +151,32 @@ public class Space extends World
        if(ban==0){ 
         if(tiempo.millisElapsed() > 5000){
             addObject(new Enemigo(),Greenfoot.getRandomNumber(600), 40);
-            addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
+            
             addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
             tiempo.mark();
          }
-         else{
+         else
             if(tiempo2.millisElapsed() > 10000){
                 addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
-                addObject(new recarga(),Greenfoot.getRandomNumber(600), 0);
+                
+               
                 tiempo2.mark();
-           }
+           
+            }
+            if(tiempo3.millisElapsed() > 8000){
+                addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
+                 tiempo3.mark();
+            }
+            if(tiempo4.millisElapsed() > 20000){
+                addObject(new Vida(),Greenfoot.getRandomNumber(600), 40);
+                addObject(new recarga(),Greenfoot.getRandomNumber(600), 0);
+                 tiempo4.mark();
+            }
+        
          }
-        }
+          
     }
+
        
     public void jefe(int jefe)
     {
@@ -175,17 +185,31 @@ public class Space extends World
             removeObjects(getObjects(null));
             addObject(new Jugador(),300,420);
             addObject(new Jefe1(),Greenfoot.getRandomNumber(480), 40);
+           addObject(contVidas,68,480);
+           contVidas.setValue(contVidas.getValue());
+           addObject(contPunt,640,480);
+           contPunt.setValue(contPunt.getValue());
            
         }
         if(jefe == 2){
             removeObjects(getObjects(null));
             addObject(new Jugador(),300,420);
             addObject(new Jefe2(),Greenfoot.getRandomNumber(480), 40);
+            addObject(contVidas,68,480);
+            contVidas.setValue(contVidas.getValue());
+            addObject(contPunt,640,480);
+            contPunt.setValue(contPunt.getValue());
+        
         }
         if(jefe == 3){
             removeObjects(getObjects(null));
             addObject(new Jugador(),300,420);
             addObject(new Jefe3(),Greenfoot.getRandomNumber(480), 40);
+            addObject(contVidas,68,480);
+            contVidas.setValue(contVidas.getValue());
+            addObject(contPunt,640,480);
+            contPunt.setValue(contPunt.getValue());
+        
         }
         if(tiempo3.millisElapsed() > 5000){
            addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
@@ -264,6 +288,7 @@ public class Space extends World
    
    public void Gana(){
        Label etiquetaFin = new Label("finnnnn",100);
+       
        addObject(etiquetaFin,250,300);
        Greenfoot.stop();
     }
@@ -282,6 +307,10 @@ public class Space extends World
      public void incrmentaPuntos() 
     {
         contPunt.add(+1);
+    }
+    public void incrmentaVida() 
+    {
+        contVidas.add(+1);
     }
     
     public void cuentaEnemigos()

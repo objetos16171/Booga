@@ -13,6 +13,7 @@ public class Bala extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int eliminados=0;
+    private int v1 = 0;
     public void act() 
     {
        setLocation(getX(),getY()-4);
@@ -34,8 +35,11 @@ public class Bala extends Actor
         }
         
         if(isTouching(Jefe1.class)){
-           removeTouching(Jefe1.class);
-           mundo.nivel2();
+            v1+=1;
+            if(v1 > 15){
+            removeTouching(Jefe1.class);
+            mundo.nivel2();
+           }
         }else
            if(isTouching(Jefe2.class)){
            removeTouching(Jefe2.class);
@@ -50,14 +54,14 @@ public class Bala extends Actor
             mundo.cuentaEnemigos();
            removeTouching(Enemigo.class);
            mundo.incrmentaPuntos();
-           if(mundo.getcuE()== 2){
+           if(mundo.getcuE()== 7){
                mundo.jefe(1);
            }else
-           if(mundo.getcuE()== 4){
+           if(mundo.getcuE()== 14){
                mundo.jefe(2);
            }
            else
-           if(mundo.getcuE()== 6){
+           if(mundo.getcuE()== 21){
                mundo.jefe(3);
            }
         }

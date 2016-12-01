@@ -18,16 +18,15 @@ public class Jefe1 extends Enemigo
         Space mundo = (Space) getWorld();
         move(velx);
         dispara();
-        movimiento();
-    } 
+        movimientoJefe(); 
+    }    
     
-    public void movimiento(){
-    if(getX()==480){
-        velx=-velx;
+    public void movimientoJefe(){
+        if(getX()>=480){
+            velx=-velx;
+        }
+        if(getX()==0){
+            velx=-velx;
+        }
     }
-    if(getX()==0){
-        velx=-velx;
-    }
-   }
 }
-

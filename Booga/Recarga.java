@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Recarga here.
+ * Write a description of class recarga here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -22,6 +22,7 @@ public class recarga extends Actor
         if(getY() > 498)//Condicion para choque de meteorito con jugador
             {
                 mundo.removeObject(this);
-            } 
-    }
+            }
+        }
 }
+

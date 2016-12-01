@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Jefe2 here.
+ * Write a description of class jefe2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)

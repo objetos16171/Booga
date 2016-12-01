@@ -31,6 +31,7 @@ public class Enemigo extends Actor
        {
            getImagen(0);
         }
+        else
         if(lv==1)
        {
            getImagen(1);
@@ -44,6 +45,8 @@ public class Enemigo extends Actor
         if(getX() > 640 || getY() > 498){
             mundo.removeObject(this);
         }
+        
+       
     } 
     public void dispara(){
      Space mundo = (Space) getWorld();
@@ -64,4 +67,3 @@ public class Enemigo extends Actor
         return imagenes.get(n);
     }
 }
-

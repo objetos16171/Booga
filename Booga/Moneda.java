@@ -17,6 +17,7 @@ public class Moneda extends Actor
         // Add your action code here.
         setLocation(getX(),getY()+2);
         movimiento();
+       
     }
     
     public void movimiento()
@@ -28,6 +29,6 @@ public class Moneda extends Actor
         }else
          if(isTouching(Jugador.class)){
            mundo.incrmentaPuntos();
-        }
-     }  
+    }   
+   }  
 }

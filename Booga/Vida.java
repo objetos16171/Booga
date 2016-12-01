@@ -1,22 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Balljefe here.
+ * Write a description of class Vida here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Balljefe extends Actor
+public class Vida extends Actor
 {
     /**
-     * Act - do whatever the Balljefe wants to do. This method is called whenever
+     * Act - do whatever the Moneda wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-     public void act() 
+    public void act() 
     {
         // Add your action code here.
         setLocation(getX(),getY()+2);
         movimiento();
+       
     }
     
     public void movimiento()
@@ -25,19 +26,10 @@ public class Balljefe extends Actor
         setLocation(getX(), getY());
         if(getY() > 498){
             mundo.removeObject(this);
-        }
-        
-        else{
-        if(isTouching(EscudoBurbuja.class))
-        {
-            removeTouching(EscudoBurbuja.class);
-        }
-        else{
-            if(isTouching(Jugador.class)){
-                mundo.decrementaVidas();
-            }
-    }
-    }  
+        }else
+         if(isTouching(Jugador.class)){
+           mundo.incrmentaVida();
+           mundo.removeObject(this);
+    }   
+   }  
 }
-}
-

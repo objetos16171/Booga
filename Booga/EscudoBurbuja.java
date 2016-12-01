@@ -26,6 +26,7 @@ public class EscudoBurbuja extends Actor
         if(Greenfoot.isKeyDown("down")){
             setLocation(getX(),getY()+3);
         }
+        
         // Add your action code here.
     }    
     
@@ -42,6 +43,7 @@ public class EscudoBurbuja extends Actor
         if(isTouching(Balljefe.class)){
             removeTouching(Enemigo.class);
         }
+       
         
     } 
 }
