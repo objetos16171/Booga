@@ -73,15 +73,23 @@ public class Space extends World
         addObject(Salir,740,450);  
     }
     
+    /**
+     * Método donde aparecen los creditos en una imagen
+     */
     public void Creditos()
     {
         removeObjects(getObjects(null));
 
-        GreenfootImage hp = new GreenfootImage(".png");
+        GreenfootImage hp = new GreenfootImage("Creditos.png");
         setBackground(hp);
         addObject(Salir,740,450);  
     }
      
+    /**
+     * Método que selecciona entre todos los botones que aparescan
+     * en el juegoya sea el de salir que regresa al menú, el de start manda 
+     * }al nivel 1, help manda a la ayuda y el boton de creditos.
+     */
     public void seleccionar()
     {
         if(Greenfoot.mouseClicked(Salir)) {
@@ -103,6 +111,9 @@ public class Space extends World
         }
     }
     
+    /**
+     * Método del nivel uno del juego
+     */
     public void nivel1()
     {
         setBackground("space1.jpg");
@@ -125,6 +136,9 @@ public class Space extends World
         contPunt.setValue(0);
     }
     
+    /**
+     * Método del nievel 2
+     */
     public void nivel2()
     {
         ban=0;
@@ -143,6 +157,9 @@ public class Space extends World
         addObject(contnivel,68,20);
     }
     
+    /**
+     * 
+     */
     public void nivel3(){
         ban=0;
         removeObjects(getObjects(null));
