@@ -54,14 +54,14 @@ public class Bala extends Actor
             mundo.cuentaEnemigos();
            removeTouching(Enemigo.class);
            mundo.incrmentaPuntos();
-           if(mundo.getcuE()== 7){
+           if(mundo.getcuE()== 2){
                mundo.jefe(1);
            }else
-           if(mundo.getcuE()== 14){
+           if(mundo.getcuE()== 4){
                mundo.jefe(2);
            }
            else
-           if(mundo.getcuE()== 21){
+           if(mundo.getcuE()== 6){
                mundo.jefe(3);
            }
         }

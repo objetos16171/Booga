@@ -37,11 +37,13 @@ public class Space extends World
         imagenes.add(new GreenfootImage("menu.jpg"));      //0
         imagenes.add(new GreenfootImage("Start.png")); //1
         imagenes.add(new GreenfootImage("Salir.png"));//2
-        imagenes.add(new GreenfootImage("Help.png")); //3            //contadores
+        imagenes.add(new GreenfootImage("Help.png")); //3            
+        //imagenes.add(new GreenfootImage("Creditos.jpg")); //4
         
         Start = new Boton(getImagen(1));
         Salir = new Boton(getImagen(2));
         Help = new Boton(getImagen(3));
+        //Cre = new Boton(getImagen(4));
        menu();  
     }
     
@@ -70,6 +72,15 @@ public class Space extends World
         setBackground(hp);
         addObject(Salir,740,450);  
     }
+    
+    public void Creditos()
+    {
+        removeObjects(getObjects(null));
+
+        GreenfootImage hp = new GreenfootImage(".png");
+        setBackground(hp);
+        addObject(Salir,740,450);  
+    }
      
     public void seleccionar()
     {
@@ -82,6 +93,10 @@ public class Space extends World
             l = 1;
             nivel1();
         }
+        /*if(Greenfoot.mouseClicked(Cre)){
+            removeObjects(getObjects(null));
+            Creditos();
+        }*/
          if(Greenfoot.mouseClicked(Help)) {
             removeObjects(getObjects(null));
             Help();
@@ -98,8 +113,7 @@ public class Space extends World
         Greenfoot.setSpeed(45);
         
         agrega();
-  
-         
+        
         //Greenfoot.playSound("Star_wars_Theme_Song.wav") 
         contVidas = new Counter("Vidas: "); //contadores 
         addObject(contVidas,68,480);
@@ -158,10 +172,7 @@ public class Space extends World
          else
             if(tiempo2.millisElapsed() > 10000){
                 addObject(new Escudo(),Greenfoot.getRandomNumber(600), 0);
-                
-               
                 tiempo2.mark();
-           
             }
             if(tiempo3.millisElapsed() > 8000){
                 addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
@@ -172,9 +183,7 @@ public class Space extends World
                 addObject(new Recarga(),Greenfoot.getRandomNumber(600), 0);
                  tiempo4.mark();
             }
-        
-         }
-          
+       }  
     }
 
        
@@ -278,19 +287,13 @@ public class Space extends World
    public void muerte()
    {
        decrementaVidas();
-       if(contVidas.getValue() <= 0)
-       {
-           Label etiquetaFin = new Label("Game Over",100);
-           addObject(etiquetaFin,250,300);
-           Greenfoot.stop();
-       }
    }
    
    public void Gana(){
-       Label etiquetaFin = new Label("finnnnn",100);
-       
-       addObject(etiquetaFin,250,300);
-       Greenfoot.stop();
+       removeObjects(getObjects(null));
+       GreenfootImage gan = new GreenfootImage("Ganar.jpg");
+       setBackground(gan);
+       addObject(Salir,740,450);
     }
    
    /**
@@ -299,6 +302,17 @@ public class Space extends World
     public void decrementaVidas()  //Metodo para incrementar cont de vidas
     {
         contVidas.add(-1);
+        if(contVidas.getValue() <= 0)
+       {
+           muere();
+       }
+    }
+    public void muere()
+    {
+        removeObjects(getObjects(null));
+        GreenfootImage pe = new GreenfootImage("Perdiste.jpg");
+        setBackground(pe);
+        addObject(Salir,740,450);
     }
     
     /**

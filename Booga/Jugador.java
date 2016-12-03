@@ -46,20 +46,21 @@ public class Jugador extends Actor
            if(esc==0){
            mundo.muerte();
           }
-        }
+        }else
         if(isTouching(Enemigo.class)){
            removeTouching(Enemigo.class);
             if(esc==0){
            mundo.muerte();
           }
         }
+        else
         if(isTouching(Balljefe.class)){
            removeTouching(Balljefe.class);
             if(esc==0){
            mundo.muerte();
           }
         }
-        
+        else
         if(isTouching(Escudo.class)) //condicion para creacion del escudo
         {  
             if(esc==0){
