@@ -50,7 +50,7 @@ public class Enemigo extends Actor
     } 
     public void dispara(){
      Space mundo = (Space) getWorld();
-     if(tiempo.millisElapsed() > 5000){
+     if(tiempo.millisElapsed() > 2000){
       mundo.newBalljefe(getX(),getY()+20); 
        tiempo.mark();
            

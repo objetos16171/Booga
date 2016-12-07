@@ -111,26 +111,32 @@ public class Space extends World
             Creditos();
         }
     }
+    public void contadores(){
+        addObject(contVidas,68,480);
+        contVidas.setValue(contVidas.getValue());
+        addObject(contPunt,640,480);
+        contPunt.setValue(contPunt.getValue());
+        addObject(contnivel,68,20);
+        contnivel.setValue(contnivel.getValue());
+    }
     
     /**
      * Método del nivel uno del juego
      */
     public void nivel1()
     {
+        ban=0;
         setBackground("space1.jpg");
-        addObject(new Enemigo(),Greenfoot.getRandomNumber(580), 40);
         addObject(new Jugador(),300,420);
-        addObject(new Meteorito(),Greenfoot.getRandomNumber(600), 0);
-        addObject(new Moneda(),Greenfoot.getRandomNumber(600), 0);
         Greenfoot.setSpeed(45);
-        
         agrega();
         
         //Greenfoot.playSound("Star_wars_Theme_Song.wav") 
         contVidas = new Counter("Vidas: "); //contadores 
         addObject(contVidas,68,480);
-        contnivel = new Counter("Nivel: "); //contadores 
+        contnivel = new Counter("Nivel:"); //contadores 
         addObject(contnivel,68,20);
+        contnivel.setValue(1);
         contVidas.setValue(3);
         contPunt = new Counter("Puntos: ");
         addObject(contPunt,640,480);
@@ -145,17 +151,18 @@ public class Space extends World
         ban=0;
         removeObjects(getObjects(null));
         setBackground("Fondo2.jpg");
+        incrmentaNivel();
         addObject(new Jugador(),300,420);
         Greenfoot.setSpeed(50);
         
         agrega();
-
-        addObject(contVidas,68,480);
+        contadores();
+        /*addObject(contVidas,68,480);
         contVidas.setValue(contVidas.getValue());
         addObject(contPunt,640,480);
         contPunt.setValue(contPunt.getValue());
-        contnivel = new Counter("nivel: 2"); //contadores 
         addObject(contnivel,68,20);
+        contnivel.setValue(contnivel.getValue());*/
     }
     
     /**
@@ -165,17 +172,13 @@ public class Space extends World
         ban=0;
         removeObjects(getObjects(null));
         setBackground("Fondo3.jpg");
+        incrmentaNivel();
         addObject(new Jugador(),300,420);
         Greenfoot.setSpeed(55);
         if(ban==0){
         agrega();
         }
-        addObject(contVidas,68,480);
-        contVidas.setValue(contVidas.getValue());
-        addObject(contPunt,640,480);
-        contPunt.setValue(contPunt.getValue());
-        contnivel = new Counter("nivel: 3"); //contadores 
-        addObject(contnivel,68,20);
+       contadores();
     }
     
     /**
@@ -218,30 +221,21 @@ public class Space extends World
             removeObjects(getObjects(null));
             addObject(new Jugador(),300,420);
             addObject(new Jefe1(),Greenfoot.getRandomNumber(480), 40);
-           addObject(contVidas,68,480);
-           contVidas.setValue(contVidas.getValue());
-           addObject(contPunt,640,480);
-           contPunt.setValue(contPunt.getValue());
+           contadores();
            
         }
         if(jefe == 2){
             removeObjects(getObjects(null));
             addObject(new Jugador(),300,420);
             addObject(new Jefe2(),Greenfoot.getRandomNumber(480), 40);
-            addObject(contVidas,68,480);
-            contVidas.setValue(contVidas.getValue());
-            addObject(contPunt,640,480);
-            contPunt.setValue(contPunt.getValue());
+            contadores();
         
         }
         if(jefe == 3){
             removeObjects(getObjects(null));
             addObject(new Jugador(),300,420);
             addObject(new Jefe3(),Greenfoot.getRandomNumber(480), 40);
-            addObject(contVidas,68,480);
-            contVidas.setValue(contVidas.getValue());
-            addObject(contPunt,640,480);
-            contPunt.setValue(contPunt.getValue());
+            contadores();
         
         }
         if(tiempo3.millisElapsed() > 5000){
@@ -367,6 +361,7 @@ public class Space extends World
     public void muere()
     {
         removeObjects(getObjects(null));
+        ban=1;
         GreenfootImage pe = new GreenfootImage("Perdiste.jpg");
         setBackground(pe);
         addObject(Salir,740,450);
@@ -378,6 +373,10 @@ public class Space extends World
      public void incrmentaPuntos() 
     {
         contPunt.add(+1);
+    }
+    public void incrmentaNivel() 
+    {
+        contnivel.add(+1);
     }
     
     /**

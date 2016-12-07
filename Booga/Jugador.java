@@ -63,18 +63,15 @@ public class Jugador extends Actor
         else
         if(isTouching(Escudo.class)) //condicion para creacion del escudo
         {  
-            if(esc==0){
-               escudo+=1;
+               esc=1;
                removeTouching(Escudo.class);
                mundo.generaEscudo(getX(), getY());
-            if(Greenfoot.getRandomNumber(100)>1)
-            {
-               mundo.remueveEscudo();
-               esc=0;
-            } 
-           }
-           esc=1;
-        }
+   
+        } if(tiempo3.millisElapsed() > 10000){
+            esc=0;
+            tiempo3.mark();
+         }
+        
               
             if(Greenfoot.isKeyDown("s")){ //Condicio para creacion de balas
                 if(Greenfoot.getRandomNumber(100) > 75)

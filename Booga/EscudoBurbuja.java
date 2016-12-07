@@ -12,6 +12,7 @@ public class EscudoBurbuja extends Actor
      * Act - do whatever the EscudoBurbuja wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private SimpleTimer tiempo = new SimpleTimer();
         public void act() 
     {
         if(Greenfoot.isKeyDown("left")){
@@ -26,7 +27,10 @@ public class EscudoBurbuja extends Actor
         if(Greenfoot.isKeyDown("down")){
             setLocation(getX(),getY()+3);
         }
-        
+        if(tiempo.millisElapsed() > 5000){
+            Space mundo = (Space) getWorld();
+            mundo.removeObject(this);
+         }
         // Add your action code here.
     }    
     
